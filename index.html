@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saaro — Make every podcast yours.</title>
+  <meta name="description" content="Saaro is the podcast app where you shape every listen. Chapter summaries help you decide what to play and what to skip, and your editorial choices follow you everywhere.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Saaro — Make every podcast yours.">
+  <meta property="og:description" content="The podcast app where you shape every listen. Now in private beta on iOS.">
+  <meta property="og:url" content="https://getsaaro.com">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://getsaaro.com/og-image.png">
+  <!-- TODO: create og-image.png (1200×630) and add to repo root -->
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Saaro — Make every podcast yours.">
+  <meta name="twitter:description" content="The podcast app where you shape every listen. Now in private beta on iOS.">
+  <meta name="twitter:image" content="https://getsaaro.com/og-image.png">
+
+  <!-- TODO: add favicon.ico to repo root and uncomment -->
+  <!-- <link rel="icon" href="/favicon.ico"> -->
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <nav class="site-nav">
+      <a href="/" class="site-nav__logo">Saaro</a>
+    </nav>
+
+    <!-- ── Hero ── -->
+    <section class="hero">
+      <p class="hero__label">Now in private beta on iOS</p>
+      <h1 class="hero__headline">Make every podcast yours.</h1>
+      <p class="hero__subhead">
+        Every podcast has parts you'd love and parts you'd skip if you could.
+        Saaro generates chapter summaries for every episode, so you can shape
+        each listen around what actually matters to you.
+      </p>
+      <div class="hero__actions">
+        <a href="#ios-form" class="btn btn--primary">Request an iOS invite</a>
+        <a href="#android-form" class="btn btn--secondary">Get notified when Android ships</a>
+      </div>
+    </section>
+
+    <!-- ── Features ── -->
+    <div class="features">
+      <div class="feature">
+        <h2 class="feature__title">Chapter-level intelligence</h2>
+        <p class="feature__body">
+          Every episode comes with AI-generated summaries and topic tags for each chapter.
+          You see what's in an episode before you spend an hour finding out.
+        </p>
+      </div>
+      <div class="feature">
+        <h2 class="feature__title">Your podcast, your edits</h2>
+        <p class="feature__body">
+          Skip the chapters you don't want. Restore them later if you change your mind.
+          Queue exactly what you want to listen to next. Your editorial decisions
+          follow you across devices.
+        </p>
+      </div>
+      <div class="feature">
+        <h2 class="feature__title">Built for serious podcast consumers</h2>
+        <p class="feature__body">
+          Saaro works with any podcast — public feeds, paid Substack subscriptions,
+          Patreon-locked shows. If it has an RSS URL, Saaro can play it.
+        </p>
+      </div>
+    </div>
+
+    <!-- ── Demo callout ── -->
+    <section class="demo-callout">
+      <h2 class="demo-callout__title">See how it works</h2>
+      <a href="/demo.html" class="btn btn--primary">Watch the demo →</a>
+    </section>
+
+    <!-- ── Forms ── -->
+    <section>
+      <div class="forms-grid">
+
+        <!-- iOS form -->
+        <div class="form-card" id="ios-form">
+          <h2 class="form-card__title">iOS — Request an Invite</h2>
+          <p class="form-card__description">
+            Saaro is in private TestFlight beta. Tell us your email and
+            we'll send you an invite as we onboard new testers.
+          </p>
+          <!-- TODO: Firebase Function 'submitWaitlist' must be deployed
+               before this form works. See the submitWaitlist Cloud Function spec. -->
+          <form action="https://us-central1-saaro-dev.cloudfunctions.net/submitWaitlist"
+                method="POST"
+                data-platform="ios"
+                class="waitlist-form"
+                novalidate>
+            <input type="hidden" name="platform" value="ios">
+            <input type="hidden" name="source" value="getsaaro.com">
+            <div class="form-row">
+              <input type="email" name="email" class="input"
+                     placeholder="Email address" required autocomplete="email">
+              <button type="submit" class="btn btn--primary">Request invite</button>
+            </div>
+            <p class="form-feedback" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <!-- Android form -->
+        <div class="form-card" id="android-form">
+          <h2 class="form-card__title">Android — Get on the Waitlist</h2>
+          <p class="form-card__description">
+            The Android app isn't built yet. If enough people want it, we'll build it.
+            Sign up to be notified when it ships — and to help us decide whether it should.
+          </p>
+          <!-- TODO: Firebase Function 'submitWaitlist' must be deployed
+               before this form works. See the submitWaitlist Cloud Function spec. -->
+          <form action="https://us-central1-saaro-dev.cloudfunctions.net/submitWaitlist"
+                method="POST"
+                data-platform="android"
+                class="waitlist-form"
+                novalidate>
+            <input type="hidden" name="platform" value="android">
+            <input type="hidden" name="source" value="getsaaro.com">
+            <div class="form-row">
+              <input type="email" name="email" class="input"
+                     placeholder="Email address" required autocomplete="email">
+              <button type="submit" class="btn btn--secondary">Notify me</button>
+            </div>
+            <p class="form-feedback" aria-live="polite"></p>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── About PodGenie AI ── -->
+    <section class="lineage">
+      <h2 class="lineage__title">About PodGenie AI</h2>
+      <p class="lineage__body">
+        Saaro is built by PodGenie AI, the company founded on a 2024 white paper
+        proposing chapter-level podcast discovery. Read the origin story and the
+        original PodFeed paper at <a href="https://podgenie.ai">podgenie.ai</a>.
+      </p>
+    </section>
+
+    <!-- ── Footer ── -->
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <p>© 2026 Saurabh Kulkarni · <a href="mailto:hello@getsaaro.com">hello@getsaaro.com</a></p>
+        <nav class="site-footer__links">
+          <a href="/privacy.html">Privacy</a>
+          <a href="/terms.html">Terms</a>
+          <a href="/support.html">Support</a>
+          <a href="/creators.html">For Creators</a>
+          <a href="/changelog.html">Changelog</a>
+        </nav>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    // Progressive enhancement: intercept form submits for better UX.
+    // Falls back to standard HTML POST if JS is unavailable.
+    document.querySelectorAll('.waitlist-form').forEach(function(form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var emailInput = form.querySelector('input[type="email"]');
+        var feedback = form.querySelector('.form-feedback');
+        var btn = form.querySelector('button[type="submit"]');
+        var email = emailInput.value.trim();
+
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          feedback.textContent = 'Please enter a valid email address.';
+          feedback.className = 'form-feedback form-feedback--error';
+          return;
+        }
+
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+        feedback.textContent = '';
+        feedback.className = 'form-feedback';
+
+        var data = {
+          email: email,
+          platform: form.querySelector('input[name="platform"]').value,
+          source: 'getsaaro.com'
+        };
+
+        fetch(form.action, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        })
+        .then(function(res) {
+          if (res.ok) {
+            feedback.textContent = 'You\'re on the list. We\'ll be in touch.';
+            feedback.className = 'form-feedback form-feedback--success';
+            emailInput.value = '';
+          } else {
+            return res.json().then(function(body) {
+              throw new Error(body.error || 'Something went wrong.');
+            });
+          }
+        })
+        .catch(function(err) {
+          feedback.textContent = err.message || 'Something went wrong. Try again.';
+          feedback.className = 'form-feedback form-feedback--error';
+        })
+        .finally(function() {
+          btn.disabled = false;
+          btn.textContent = data.platform === 'ios' ? 'Request invite' : 'Notify me';
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
