@@ -353,9 +353,14 @@ section {
   padding: 1rem;
 }
 
+.demo-video-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
 .demo-video {
   display: block;
-  margin: 0 auto 3rem;
   max-height: 600px;
   width: auto;
   max-width: 100%;
