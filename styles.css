@@ -353,6 +353,17 @@ section {
   padding: 1rem;
 }
 
+.demo-video {
+  display: block;
+  margin: 0 auto 3rem;
+  max-height: 600px;
+  width: auto;
+  max-width: 100%;
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+}
+
 .screenshot-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
